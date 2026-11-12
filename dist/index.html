@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8f7f2">
+<meta name="description" content="Planeje sua semana de inglês A1, pratique listening e shadowing e registre seu progresso.">
+<title>Inglês em 10 · Planejador A1</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#planejador">Ir ao planejador</a>
+<header class="top"><div class="shell top-inner">
+  <a class="brand" href="#inicio"><span class="brand-icon" aria-hidden="true">▤</span> Inglês em 10</a>
+  <nav aria-label="Seções"><a href="#planejador">Planejador</a><a href="#caderno">Meu caderno</a></nav>
+  <span class="level">NÍVEL A1</span>
+</div></header>
+<main class="shell" id="inicio">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy"><p class="kicker"><span></span> MEU PLANO DE INGLÊS</p>
+      <h1 id="hero-title">Meu inglês,<br><em>no meu ritmo.</em></h1>
+      <p class="intro">10 minutos de listening por dia. Nos dias de aula, o treino é mais leve. Nos outros, tem espaço para shadowing e gramática.</p>
+      <a class="button dark" id="go-today" href="#treino">Treinar hoje</a>
+    </div>
+    <aside class="feature" aria-label="Série sugerida para listening">
+      <div class="feature-top"><span class="feature-icon" aria-hidden="true">▷</span><span> SÉRIE EM DESTAQUE</span></div>
+      <h2 lang="en">Extra English</h2>
+      <p>Siga a história episódio a episódio. Escolha um trecho curto e retome de onde parou no próximo treino.</p>
+      <div class="feature-actions">
+        <a href="https://www.youtube.com/results?search_query=Extra+English+full+episodes+playlist" target="_blank" rel="noopener noreferrer">Buscar episódios</a>
+        <button type="button" id="use-series">Usar no treino</button>
+      </div>
+    </aside>
+  </section>
+  <section class="section" id="planejador" aria-labelledby="week-title">
+    <div class="section-head">
+      <div><p class="kicker">SEGUNDA A DOMINGO</p><h2 id="week-title">Minha semana</h2></div>
+      <div class="week-nav"><button class="icon-btn" id="prev-week" aria-label="Semana anterior">‹</button><span id="week-range"></span><button class="icon-btn" id="next-week" aria-label="Próxima semana">›</button></div>
+    </div>
+    <div class="week-days" id="week-days" aria-label="Dias da semana"></div>
+    <div class="week-progress">
+      <div class="progress-label"><strong id="week-done"></strong><span id="week-minutes"></span></div>
+      <progress id="week-bar" max="7" value="0" aria-label="Dias com treino na semana"></progress>
+      <span id="week-goal"></span>
+    </div>
+  </section>
+  <section class="section" id="treino" aria-labelledby="day-title">
+    <div class="section-head day-head">
+      <div><p class="kicker" id="day-type"></p><h2 id="day-title"></h2></div>
+      <div class="mode" role="group" aria-label="Modo do treino"><button id="normal-mode" type="button" aria-pressed="true">Plano do dia</button><button id="short-mode" type="button" aria-pressed="false">Mínimo · 5 min</button></div>
+    </div>
+    <p class="day-description" id="day-description"></p>
+    <div class="practice-grid">
+      <article class="card listening">
+        <div class="card-head"><div class="tile-icon" aria-hidden="true">♫</div><div><h3>Listening</h3><p>O mesmo trecho, em três etapas.</p></div></div>
+        <div id="steps" class="steps"></div>
+        <div class="media-fields">
+          <label for="media">Episódio ou áudio</label>
+          <input id="media" maxlength="250" placeholder="Ex.: Extra English · episódio 1, 00:30–01:30">
+          <label for="minutes-listened">Minutos de listening registrados</label>
+          <input class="minutes" id="minutes-listened" type="number" min="0" max="1440" step="1" inputmode="numeric">
+          <small>O cronômetro soma o tempo quando termina. Você também pode ajustar o total aqui.</small>
+        </div>
+      </article>
+      <div class="practice-side">
+        <article class="card timers">
+          <div class="card-head"><div class="tile-icon" aria-hidden="true">◷</div><div><h3>Cronômetros</h3><p>Ajuste os minutos de cada treino.</p></div></div>
+          <div id="timers"></div>
+        </article>
+        <article class="card extras">
+          <h3>Checklist complementar</h3>
+          <p id="extras-hint"></p>
+          <label class="check-row"><input type="checkbox" id="shadow-check"><span><strong>Fiz shadowing</strong><small>Ouça uma frase e repita imitando o ritmo.</small></span></label>
+          <label class="check-row"><input type="checkbox" id="grammar-check"><span><strong>Pratiquei gramática</strong><small id="grammar-prompt"></small></span></label>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section notebook" id="caderno" aria-labelledby="notebook-title">
+    <div class="section-head">
+      <div><p class="kicker" id="notes-day"></p><h2 id="notebook-title">Meu caderno</h2></div>
+      <span class="save-label" id="save-label" role="status">Salvo neste navegador</span>
+    </div>
+    <div class="notes-grid">
+      <label class="card note">Palavras e frases que não entendi
+        <textarea id="unknown" placeholder="Ex.: toward me — em minha direção"></textarea>
+      </label>
+      <label class="card note">Frases simples do cotidiano
+        <textarea id="phrases" placeholder="Ex.: I take the bus to work. — Eu vou de ônibus para o trabalho."></textarea>
+      </label>
+    </div>
+  </section>
+</main>
+<footer class="shell footer"><span>Inglês em 10</span><span>Seu plano e suas anotações ficam neste navegador.</span></footer>
+</body>
+</html>
