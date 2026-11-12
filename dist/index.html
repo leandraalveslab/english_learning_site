@@ -9,13 +9,15 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png" type="image/png">
 <link rel="stylesheet" href="style.css">
+<script src="words.js" defer></script>
+<script src="vocabulary.js" defer></script>
 <script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#planejador">Ir ao planejador</a>
 <header class="top"><div class="shell top-inner">
   <a class="brand" href="#inicio"><span class="brand-icon" aria-hidden="true">▤</span> Inglês em 10</a>
-  <nav aria-label="Seções"><a href="#planejador">Planejador</a><a href="#caderno">Meu caderno</a></nav>
+  <nav aria-label="Seções"><a href="#planejador">Planejador</a><a href="#vocabulario">Vocabulário</a><a href="#caderno">Meu caderno</a></nav>
   <span class="level">NÍVEL A1</span>
 </div></header>
 <main class="shell" id="inicio">
@@ -76,6 +78,51 @@
           <label class="check-row"><input type="checkbox" id="shadow-check"><span><strong>Fiz shadowing</strong><small>Ouça uma frase e repita imitando o ritmo.</small></span></label>
           <label class="check-row"><input type="checkbox" id="grammar-check"><span><strong>Pratiquei gramática</strong><small id="grammar-prompt"></small></span></label>
         </article>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="vocabulario" aria-labelledby="vocab-title">
+    <div class="section-head vocab-head">
+      <div><p class="kicker" id="vocab-date"></p><h2 id="vocab-title">Vocabulário</h2></div>
+      <div class="mode" role="group" aria-label="Tipo de prática de vocabulário">
+        <button type="button" id="vocab-daily" aria-pressed="true">Palavras do dia</button>
+        <button type="button" id="vocab-review" aria-pressed="false">Revisar <span id="vocab-due"></span></button>
+      </div>
+    </div>
+    <div class="vocab-grid">
+      <article class="card vocab-card" aria-label="Flashcards de vocabulário">
+        <div id="vocab-practice">
+          <p id="vocab-position" aria-live="polite"></p>
+          <h3 id="vocab-word" lang="en"></h3>
+          <div id="vocab-answer" hidden>
+            <p id="vocab-meaning"></p>
+            <p id="vocab-example" lang="en"></p>
+            <p id="vocab-translation"></p>
+          </div>
+          <div class="vocab-actions">
+            <button type="button" id="vocab-reveal" aria-controls="vocab-answer" aria-expanded="false">Mostrar resposta</button>
+            <div id="vocab-ratings" class="vocab-ratings" hidden>
+              <button type="button" id="vocab-again">Rever amanhã</button>
+              <button type="button" id="vocab-know">Já lembro</button>
+            </div>
+          </div>
+          <div class="vocab-nav">
+            <button type="button" id="vocab-prev">← Anterior</button>
+            <button type="button" id="vocab-next">Próxima →</button>
+          </div>
+        </div>
+        <div id="vocab-empty" hidden>
+          <h3 id="vocab-empty-title" tabindex="-1"></h3>
+          <p id="vocab-empty-text"></p>
+        </div>
+      </article>
+      <div class="vocab-reference">
+        <p>Viu a palavra? Tente lembrar o significado antes de mostrar a resposta. As que você já lembra voltam com intervalos maiores.</p>
+        <details class="card" id="vocab-list">
+          <summary>Ver as 5 palavras com exemplos</summary>
+          <ul id="vocab-words"></ul>
+        </details>
+        <p id="vocab-feedback" role="status"></p>
       </div>
     </div>
   </section>

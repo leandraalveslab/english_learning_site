@@ -208,6 +208,7 @@ function selectDate(date) {
     updateWeek();
   }
   updateDay();
+  document.dispatchEvent(new CustomEvent("study-date-change", {detail: dateKey(date)}));
 }
 
 function setMode(mode) {
