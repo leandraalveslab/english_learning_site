@@ -352,3 +352,9 @@ function refreshTimers() {
 selectDate(selected);
 setInterval(refreshTimers, 250);
 document.addEventListener("visibilitychange", refreshTimers);
+
+if ("serviceWorker" in navigator && window.isSecureContext) {
+  navigator.serviceWorker.register("./sw.js").catch((error) => {
+    console.warn("Não foi possível preparar o acesso offline.", error);
+  });
+}
