@@ -41,21 +41,23 @@
 <script src="app.js" defer></script>
 <script src="listening.js" defer></script>
 <script src="today.js" defer></script>
+<script src="nav.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#planejador">Ir ao planejador</a>
+<a class="skip" href="#conteudo">Ir ao conteúdo</a>
 <header class="top"><div class="shell top-inner">
   <a class="brand" href="#inicio"><span class="brand-icon" aria-hidden="true">10</span> Inglês em 10</a>
   <nav class="app-nav" aria-label="Seções">
-    <a href="#planejador"><span class="nav-icon" aria-hidden="true">▦</span>Semana</a>
-    <a href="#vocabulario"><span class="nav-icon" aria-hidden="true">Aa</span>Vocabulário</a>
-    <a href="#exercicios"><span class="nav-icon" aria-hidden="true">✓</span>Exercícios</a>
-    <a href="#caderno"><span class="nav-icon" aria-hidden="true">▤</span>Caderno</a>
+    <a href="#inicio" data-nav="inicio"><span class="nav-icon" aria-hidden="true">⌂</span>Início</a>
+    <a href="#treino" data-nav="treino"><span class="nav-icon" aria-hidden="true">▦</span>Treino</a>
+    <a href="#vocabulario" data-nav="vocabulario"><span class="nav-icon" aria-hidden="true">Aa</span>Vocabulário</a>
+    <a href="#exercicios" data-nav="exercicios"><span class="nav-icon" aria-hidden="true">✓</span>Exercícios</a>
+    <a href="#caderno" data-nav="caderno"><span class="nav-icon" aria-hidden="true">▤</span>Caderno</a>
   </nav>
   <span class="level">Nível A1</span>
 </div></header>
-<main class="shell" id="inicio">
-  <section class="hero" aria-labelledby="hero-title">
+<main class="shell" id="conteudo" tabindex="-1">
+  <section class="hero" id="inicio" data-screen="inicio" aria-labelledby="hero-title">
     <div class="hero-copy">
       <h1 id="hero-title">Dez minutos de inglês, todo dia.</h1>
       <p class="intro">Ouça um trecho curto, repita em voz alta e revise cinco palavras. Seu progresso fica salvo neste aparelho.</p>
@@ -79,12 +81,12 @@
       </div>
     </aside>
   </section>
-  <nav class="study-links" aria-label="Começar uma prática">
+  <nav class="study-links" data-screen="inicio" aria-label="Começar uma prática">
     <a href="#vocabulario"><span class="study-icon" aria-hidden="true">Aa</span><span><strong>Flashcards</strong><small>Palavras do dia e revisão</small></span><b aria-hidden="true">›</b></a>
     <a href="#exercicios"><span class="study-icon" aria-hidden="true">✓</span><span><strong>Treino rápido</strong><small>6 perguntas, até 60 pontos</small></span><b aria-hidden="true">›</b></a>
     <a href="#caderno"><span class="study-icon" aria-hidden="true">▤</span><span><strong>Meu caderno</strong><small>Palavras e frases que anotei</small></span><b aria-hidden="true">›</b></a>
   </nav>
-  <section class="section" id="planejador" aria-labelledby="week-title">
+  <section class="section" id="planejador" data-screen="treino" aria-labelledby="week-title">
     <div class="section-head">
       <div><p class="kicker">Segunda a domingo</p><h2 id="week-title">Minha semana</h2></div>
       <div class="week-nav"><button class="icon-btn" id="prev-week" aria-label="Semana anterior">‹</button><span id="week-range"></span><button class="icon-btn" id="next-week" aria-label="Próxima semana">›</button></div>
@@ -96,7 +98,7 @@
       <span id="week-goal"></span>
     </div>
   </section>
-  <section class="section" id="treino" aria-labelledby="day-title">
+  <section class="section" id="treino" data-screen="treino" aria-labelledby="day-title">
     <div class="section-head day-head">
       <div><p class="kicker" id="day-type"></p><h2 id="day-title"></h2></div>
       <div class="mode" role="group" aria-label="Modo do treino"><button id="normal-mode" type="button" aria-pressed="true">Plano do dia</button><button id="short-mode" type="button" aria-pressed="false">Mínimo · 5 min</button></div>
@@ -152,7 +154,7 @@
       </div>
     </div>
   </section>
-  <section class="section" id="vocabulario" aria-labelledby="vocab-title">
+  <section class="section" id="vocabulario" data-screen="vocabulario" aria-labelledby="vocab-title">
     <div class="section-head vocab-head">
       <div><p class="kicker" id="vocab-date"></p><h2 id="vocab-title">Vocabulário</h2></div>
       <div class="mode" role="group" aria-label="Tipo de prática de vocabulário">
@@ -160,7 +162,7 @@
         <button type="button" id="vocab-review" aria-pressed="false">Revisar <span id="vocab-due"></span></button>
       </div>
     </div>
-    <p class="vocab-jump"><a href="#exercicios">Ir para o treino rápido ↓</a></p>
+    <p class="vocab-jump"><a href="#exercicios">Ir para o treino rápido ›</a></p>
     <div class="vocab-grid">
       <article class="card vocab-card" aria-label="Flashcards de vocabulário">
         <div id="vocab-practice">
@@ -211,7 +213,7 @@
       </div>
     </div>
   </section>
-  <section class="section" id="exercicios" aria-labelledby="exercise-title">
+  <section class="section" id="exercicios" data-screen="exercicios" aria-labelledby="exercise-title">
     <div class="section-head vocab-head">
       <div><p class="kicker">Vocabulário, gramática e escuta</p><h2 id="exercise-title">Treino rápido</h2></div>
       <strong class="exercise-best" id="exercise-best"></strong>
@@ -254,7 +256,7 @@
       <div class="mission-grid" id="exercise-mission-list"></div>
     </div>
   </section>
-  <section class="section notebook" id="caderno" aria-labelledby="notebook-title">
+  <section class="section notebook" id="caderno" data-screen="caderno" aria-labelledby="notebook-title">
     <div class="section-head">
       <div><p class="kicker" id="notes-day"></p><h2 id="notebook-title">Meu caderno</h2></div>
       <span class="save-label" id="save-label" role="status">Salvo neste navegador</span>
@@ -268,7 +270,7 @@
       </label>
     </div>
   </section>
-  <section class="section about" id="como-funciona" aria-labelledby="about-title">
+  <section class="section about" id="como-funciona" data-screen="inicio" aria-labelledby="about-title">
     <h2 id="about-title">Como funciona o treino</h2>
     <ol class="method">
       <li><h3>Escute o mesmo trecho três vezes</h3><p>Primeiro sem legenda, para pegar a ideia geral. Depois com a transcrição, para conferir. Por fim, sem legenda de novo, para notar o que ficou claro.</p></li>
@@ -277,7 +279,7 @@
       <li><h3>Anote o que travou</h3><p>Palavras e frases que você não entendeu vão para o caderno, para revisar na próxima aula.</p></li>
     </ol>
   </section>
-  <section class="section faq" id="duvidas" aria-labelledby="faq-title">
+  <section class="section faq" id="duvidas" data-screen="inicio" aria-labelledby="faq-title">
     <h2 id="faq-title">Dúvidas frequentes</h2>
     <details><summary>Dá para aprender inglês com 10 minutos por dia?</summary><p>Dez minutos diários criam o hábito e mantêm o ouvido em contato com o idioma. O Inglês em 10 organiza esse tempo em escuta, repetição em voz alta e revisão de vocabulário, que são as práticas que mais rendem no começo.</p></details>
     <details><summary>Preciso criar conta?</summary><p>Não. Seu plano, suas palavras e suas anotações ficam salvos no próprio navegador do celular ou do computador.</p></details>
