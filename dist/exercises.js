@@ -277,6 +277,9 @@ const pronunciationTips = new Map([
     const correct = question.answers.some((answer) => normalize(answer) === normalize(response));
     graded = true;
     if (correct) score += points;
+    if (question.choices && question.word) {
+      document.dispatchEvent(new CustomEvent("word-practice", {detail: {word: question.word, result: correct, source: "exercise"}}));
+    }
     get("progress-bar").value = position + 1;
     get("input").disabled = true;
     get("check").hidden = true;

@@ -36,6 +36,7 @@
 ]}]}
 </script>
 <script src="words.js" defer></script>
+<script src="wordlog.js" defer></script>
 <script src="exercises.js" defer></script>
 <script src="vocabulary.js" defer></script>
 <script src="app.js" defer></script>
@@ -84,7 +85,7 @@
   <nav class="study-links" data-screen="inicio" aria-label="Começar uma prática">
     <a href="#vocabulario"><span class="study-icon" aria-hidden="true">Aa</span><span><strong>Flashcards</strong><small>Palavras do dia e revisão</small></span><b aria-hidden="true">›</b></a>
     <a href="#exercicios"><span class="study-icon" aria-hidden="true">✓</span><span><strong>Treino rápido</strong><small>6 perguntas, até 60 pontos</small></span><b aria-hidden="true">›</b></a>
-    <a href="#caderno"><span class="study-icon" aria-hidden="true">▤</span><span><strong>Meu caderno</strong><small>Palavras e frases que anotei</small></span><b aria-hidden="true">›</b></a>
+    <a href="#caderno"><span class="study-icon" aria-hidden="true">▤</span><span><strong>Meu caderno</strong><small>Palavras certas, erradas e anotações</small></span><b aria-hidden="true">›</b></a>
   </nav>
   <section class="section" id="planejador" data-screen="treino" aria-labelledby="week-title">
     <div class="section-head">
@@ -261,6 +262,17 @@
       <div><p class="kicker" id="notes-day"></p><h2 id="notebook-title">Meu caderno</h2></div>
       <span class="save-label" id="save-label" role="status">Salvo neste navegador</span>
     </div>
+    <article class="card words-card" aria-labelledby="words-title">
+      <h3 id="words-title">Minhas palavras</h3>
+      <p id="words-summary"></p>
+      <div class="mode words-tabs" role="group" aria-label="Filtrar palavras">
+        <button type="button" id="words-tab-review" aria-pressed="true">Para rever</button>
+        <button type="button" id="words-tab-right" aria-pressed="false">Acertei</button>
+        <button type="button" id="words-tab-seen" aria-pressed="false">Só vi</button>
+        <button type="button" id="words-tab-new" aria-pressed="false">Não vi</button>
+      </div>
+      <div class="words-list" id="words-list"></div>
+    </article>
     <div class="notes-grid">
       <label class="card note">Palavras e frases que não entendi
         <textarea id="unknown" placeholder="Ex.: toward me — em minha direção"></textarea>

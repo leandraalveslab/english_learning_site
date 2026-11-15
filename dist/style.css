@@ -321,3 +321,21 @@ input:not([type=checkbox]),textarea{width:100%;min-width:0;padding:10px 12px;bor
 }
 .paged main>.section[data-screen]{scroll-margin-top:80px}
 .paged #planejador,.paged #vocabulario,.paged #exercicios,.paged #caderno{margin-top:24px}
+
+/* Minhas palavras */
+.words-card{display:grid;gap:12px;margin-bottom:18px}
+.words-tabs{flex-wrap:wrap;border-radius:var(--r-md);justify-self:start}
+.words-tabs button{font-size:14px;padding:8px 12px}
+.words-list{display:grid;gap:8px}
+.word-row{border:1px solid var(--pauta);border-left:4px solid var(--pauta);border-radius:var(--r-sm);background:var(--folha)}
+.word-row[data-status=review]{border-left-color:var(--margem)}
+.word-row[data-status=right]{border-left-color:var(--acerto)}
+.word-row[data-status=seen]{border-left-color:var(--marca)}
+.word-row summary{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px;padding:12px 14px;cursor:pointer;color:var(--texto)}
+.word-row summary strong{color:var(--caneta);font-size:17px}
+.word-row summary small{margin-left:auto;color:var(--apagado);font-size:13px}
+.word-row>p,.word-row>ul{margin:0 14px 8px;font-size:15px;color:var(--apagado)}
+.word-row .word-example{color:var(--texto)}
+.word-history{padding-left:18px;font-size:14px}
+.word-row>:last-child{margin-bottom:14px}
+.words-empty{color:var(--apagado)}
