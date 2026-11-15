@@ -176,6 +176,7 @@
     now.setDate(now.getDate() + (known ? reviewIntervals[stage - 1] : 1));
     reviews[word] = {stage, baseStage, reviewedOn: today, due: localKey(now)};
     saveState();
+    document.dispatchEvent(new CustomEvent("word-practice", {detail: {word: word, result: known, source: "flashcard"}}));
 
     if (index + 1 === queue.length) finished = true;
     else index++;
@@ -201,6 +202,7 @@
   byId("review").addEventListener("click", () => setMode("review"));
   byId("reveal").addEventListener("click", () => {
     revealed = true;
+    document.dispatchEvent(new CustomEvent("word-practice", {detail: {word: queue[index], result: null, source: "flashcard"}}));
     render();
     byId("again").focus();
   });

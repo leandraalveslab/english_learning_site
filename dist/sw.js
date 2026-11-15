@@ -2,11 +2,11 @@
 
 const scope = self.registration.scope;
 const cachePrefix = "ingles-em-10:" + scope;
-const cacheName = cachePrefix + "v7";
+const cacheName = cachePrefix + "v8";
 const appHome = new URL("./", scope).href;
 const appIndex = new URL("index.html", scope).href;
 const appFiles = [
-  "./", "index.html", "style.css", "app.js", "words.js", "vocabulary.js", "exercises.js", "today.js", "listening.js", "nav.js", "manifest.webmanifest",
+  "./", "index.html", "style.css", "app.js", "words.js", "vocabulary.js", "exercises.js", "today.js", "listening.js", "nav.js", "wordlog.js", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png"
 ].map((path) => new URL(path, scope).href);
 const appFileUrls = new Set(appFiles);
